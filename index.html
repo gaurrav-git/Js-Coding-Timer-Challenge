@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JS Assignment — Coding & Timer Challenge</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="wrapper">
+
+  <header>
+    <div class="tag">JavaScript Assignment</div>
+    <h1>Coding &amp; Timer<br /><span>Challenge</span></h1>
+  </header>
+
+  <!--TASK 1-->
+  <div class="task">
+    <div class="task-header">
+      <span class="task-title">Find Second Largest Number</span>
+    </div>
+    <div class="task-body">
+      <div class="code-block"><span class="cm">// Given array — no sorting allowed</span>
+<span class="kw">const</span> <span class="var">nums</span> = [<span class="num">23</span>, <span class="num">45</span>, <span class="num">67</span>, <span class="num">89</span>, <span class="num">12</span>, <span class="num">90</span>, <span class="num">44</span>];
+
+<span class="kw">function</span> <span class="fn">findSecondLargest</span>(<span class="var">arr</span>) {
+  <span class="kw">let</span> <span class="var">first</span> = -Infinity, <span class="var">second</span> = -Infinity;
+  <span class="kw">for</span> (<span class="kw">let</span> <span class="var">n</span> <span class="kw">of</span> <span class="var">arr</span>) {
+    <span class="kw">if</span> (<span class="var">n</span> > <span class="var">first</span>)      { <span class="var">second</span> = <span class="var">first</span>; <span class="var">first</span> = <span class="var">n</span>; }
+    <span class="kw">else if</span> (<span class="var">n</span> > <span class="var">second</span>) { <span class="var">second</span> = <span class="var">n</span>; }
+  }
+  <span class="kw">return</span> <span class="var">second</span>;
+}
+
+console.<span class="fn">log</span>(<span class="str">"Second Largest:"</span>, <span class="fn">findSecondLargest</span>(<span class="var">nums</span>));</div>
+      <button class="run-btn" onclick="runTask1()">&#9654; Run Code</button>
+      <div class="output" id="out1"></div>
+    </div>
+  </div>
+
+  <!--TASK 2-->
+  <div class="task">
+    <div class="task-header">
+      <span class="task-title">Return Unique Elements</span>
+    </div>
+    <div class="task-body">
+      <div class="code-block"><span class="kw">function</span> <span class="fn">uniqueElements</span>(<span class="var">arr1</span>, <span class="var">arr2</span>) {
+  <span class="kw">const</span> <span class="var">combined</span> = [...<span class="var">arr1</span>, ...<span class="var">arr2</span>];
+  <span class="kw">const</span> <span class="var">seen</span> = {};
+  <span class="kw">const</span> <span class="var">result</span> = [];
+  <span class="kw">for</span> (<span class="kw">let</span> <span class="var">item</span> <span class="kw">of</span> <span class="var">combined</span>) {
+    <span class="kw">if</span> (!<span class="var">seen</span>[<span class="var">item</span>]) { <span class="var">seen</span>[<span class="var">item</span>] = <span class="kw">true</span>; <span class="var">result</span>.<span class="fn">push</span>(<span class="var">item</span>); }
+  }
+  <span class="kw">return</span> <span class="var">result</span>;
+}
+
+<span class="kw">const</span> <span class="var">a</span> = [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>];
+<span class="kw">const</span> <span class="var">b</span> = [<span class="num">3</span>, <span class="num">4</span>, <span class="num">5</span>, <span class="num">6</span>];
+console.<span class="fn">log</span>(<span class="str">"Unique Elements:"</span>, <span class="fn">uniqueElements</span>(<span class="var">a</span>, <span class="var">b</span>));</div>
+      <button class="run-btn" onclick="runTask2()">&#9654; Run Code</button>
+      <div class="output" id="out2"></div>
+    </div>
+  </div>
+
+  <!--TASK 3-->
+  <div class="task">
+    <div class="task-header">
+      <span class="task-title">Student Score Analysis</span>
+    </div>
+    <div class="task-body">
+      <div class="code-block"><span class="kw">let</span> <span class="var">students</span> = [
+  { <span class="str">name</span>: <span class="str">'Alice'</span>,   <span class="str">age</span>: <span class="num">22</span>, <span class="str">scores</span>: [<span class="num">78</span>, <span class="num">85</span>, <span class="num">92</span>] },
+  { <span class="str">name</span>: <span class="str">'Bob'</span>,     <span class="str">age</span>: <span class="num">20</span>, <span class="str">scores</span>: [<span class="num">88</span>, <span class="num">90</span>, <span class="num">76</span>] },
+  { <span class="str">name</span>: <span class="str">'Charlie'</span>, <span class="str">age</span>: <span class="num">21</span>, <span class="str">scores</span>: [<span class="num">95</span>, <span class="num">80</span>, <span class="num">85</span>] }
+];
+
+<span class="kw">function</span> <span class="fn">analyzeStudents</span>(<span class="var">students</span>) {
+  <span class="kw">let</span> <span class="var">topStudent</span> = <span class="kw">null</span>, <span class="var">topAvg</span> = -Infinity;
+  <span class="kw">for</span> (<span class="kw">let</span> <span class="var">s</span> <span class="kw">of</span> <span class="var">students</span>) {
+    <span class="kw">const</span> <span class="var">avg</span> = <span class="var">s</span>.scores.<span class="fn">reduce</span>((<span class="var">a</span>, <span class="var">b</span>) => <span class="var">a</span> + <span class="var">b</span>, <span class="num">0</span>) / <span class="var">s</span>.scores.length;
+    <span class="kw">if</span> (<span class="var">avg</span> > <span class="var">topAvg</span>) { <span class="var">topAvg</span> = <span class="var">avg</span>; <span class="var">topStudent</span> = <span class="var">s</span>; }
+  }
+  console.<span class="fn">log</span>(<span class="str">`Top Student: ${<span class="var">topStudent</span>.name} with an average score of ${<span class="var">topAvg</span>.<span class="fn">toFixed</span>(2)}`</span>);
+}
+
+<span class="fn">analyzeStudents</span>(<span class="var">students</span>);</div>
+      <button class="run-btn" onclick="runTask3()">&#9654; Run Code</button>
+      <div class="output" id="out3"></div>
+    </div>
+  </div>
+
+  <!--TASK 4-->
+  <div class="task">
+    <div class="task-header">
+      <span class="task-title">1-Hour Countdown Timer</span>
+    </div>
+    <div class="task-body">
+      <div class="timer-wrap">
+
+        <div class="timer-ring-container">
+          <svg width="220" height="220" viewBox="0 0 220 220">
+            <circle class="ring-bg"       cx="110" cy="110" r="100" />
+            <circle class="ring-progress" cx="110" cy="110" r="100" id="ring" />
+          </svg>
+          <div class="timer-display">
+            <div class="timer-time" id="timerDisplay">60:00</div>
+            <div class="timer-label">remaining</div>
+          </div>
+        </div>
+
+        <div class="timer-msg" id="timerMsg">&#9200; Time's Up!</div>
+
+        <div class="timer-controls">
+          <button class="t-btn btn-start" id="startBtn" onclick="startTimer()">Start</button>
+          <button class="t-btn btn-pause" id="pauseBtn" onclick="pauseTimer()" disabled>Pause</button>
+          <button class="t-btn btn-reset"                onclick="resetTimer()">Reset</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div><!-- /.wrapper -->
+
+<!-- External Script (deferred so DOM is ready) -->
+<script src="script.js" defer></script>
+
+</body>
+</html>
